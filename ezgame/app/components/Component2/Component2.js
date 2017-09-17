@@ -5,7 +5,9 @@ export default class Component1 extends Component{
     constructor() {
     super();
     this.state = {
-        textValue: 'Hell'};
+        textValue: 'Hell',
+        
+      };
   }
 
   onChangeText(value){

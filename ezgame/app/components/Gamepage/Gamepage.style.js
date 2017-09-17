@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions, Alert, AppRegistry, Platform, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import Component1 from './Component1';
+import Gamepage from './Gamepage';
 
 export default StyleSheet.create({
   container: {
@@ -20,5 +20,19 @@ export default StyleSheet.create({
       borderRadius:10,
       flexDirection:'row', 
       flexWrap:'wrap',
+   },
+   container1: {
+    top:100,
+   },
+   buttonrow: {
+    backgroundColor: 'white',
+    height:100,
+    position: 'absolute',
+    top: Dimensions.get('window').width /2,
+    left: Dimensions.get('window').width /3,
+   },
+   buttontext: {
+    fontSize: 20,
+    fontWeight: 'bold',
    },
 });
