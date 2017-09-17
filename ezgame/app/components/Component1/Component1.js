@@ -1,24 +1,32 @@
 import React, {Component} from 'react';
-import {Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View} from 'react-native';
+import {Alert, Dimensions, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View} from 'react-native';
 
 import styles from './Component1.style';
+import Toggle from './Toggle';
 
 export default class Component1 extends Component{
     constructor() {
     super();
     this.state = {
-        textValue: '0'};
+        textValue: '0',
+        backgroundColor: 'yellow',};
   }
 
+
 RadNum() {
-    var rand = Math.random()* (9 - 1) + 1;
+    var rand = Math.random()* (10 - 1) + 1;
     rand = Math.floor(rand);
     return rand;
 }
 onPress() {
-
-   this.setState({
-        textValue:this.RadNum().toString()
+    var rand = this.RadNum().toString();
+    while ( rand == this.state.textValue ){
+        rand = this.RadNum().toString();
+    }
+    
+    this.setState({
+        backgroundColor: 'red',
+        textValue:rand
    });
   }
 
@@ -28,55 +36,70 @@ onPress() {
       <View style = {styles.container}>
         
         <Text>value is:</Text>
-        <Text>{this.state.textValue}</Text>
+        <Text style = {style2.textnum}>{this.state.textValue}</Text>
+        <Toggle/>
         <View style = {styles.row}>
-        <TouchableHighlight style = {[styles.box, style2.bgcolor]}
+           <TouchableHighlight style = {{width: Dimensions.get('window').width /4,
+      height: Dimensions.get('window').width /4,
+      margin: 5,
+      borderRadius:10,
+      flexDirection:'row', 
+      flexWrap:'wrap',
+      backgroundColor: this.state.backgroundColor,}}
         underlayColor = {'red'}
         onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
          <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
+             <View>
+             </View>
+        </TouchableHighlight>
+        <TouchableHighlight
+        style = {[styles.box, style2.bgcolor]}
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
         <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
+        underlayColor = {'red'}
+        onPress={this.onPress.bind(this)}>
              <View>
              </View>
         </TouchableHighlight>
-        <TouchableHighlight style = {[styles.box, style2.bgcolor]}
-             onPress={this.onPress.bind(this)}>
-             <View>
-             </View>
-        </TouchableHighlight>
-
         </View>
       </View>
     );
@@ -86,6 +109,12 @@ onPress() {
 const style2 = StyleSheet.create({
     bgcolor: {
         backgroundColor: 'yellow',
+    },
+    textnum: {
+        backgroundColor: 'yellow',
+    },
+    textnumafter: {
+        backgroundColor: 'red',
     },
     });
 
