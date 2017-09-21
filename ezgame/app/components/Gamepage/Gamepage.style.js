@@ -3,6 +3,9 @@ import Gamepage from './Gamepage';
 
 export default StyleSheet.create({
   container: {
+   width:Dimensions.get('window').width,
+   height:Dimensions.get('window').height,
+   backgroundColor: 'white', 
    },
    row: {
       flex:1,
@@ -10,8 +13,6 @@ export default StyleSheet.create({
       flexWrap: 'wrap',
       justifyContent: 'center',
       alignItems: 'center',
-      padding:2,
-      top:Dimensions.get('window').height /4,
    },
    box: {
       width: Dimensions.get('window').width /4,
@@ -21,18 +22,16 @@ export default StyleSheet.create({
       flexDirection:'row', 
       flexWrap:'wrap',
    },
-   container1: {
-    top:100,
+   scorerow: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    top:30,
+    height: 120,
    },
-   buttonrow: {
-    backgroundColor: 'white',
-    height:100,
-    position: 'absolute',
-    top: Dimensions.get('window').width /2,
-    left: Dimensions.get('window').width /3,
+   score: {
+    fontSize:40,
    },
-   buttontext: {
-    fontSize: 20,
-    fontWeight: 'bold',
+   gobackrow: {
+    height: 40,
    },
 });

@@ -3,9 +3,11 @@ import {AppRegistry,
     Text, 
     View, 
     Image,
+    Dimensions,
+    TouchableOpacity,
+    StyleSheet,
     TouchableHighlight,
     Button} from 'react-native';
-import styles from '/Users/fuzuowei/ezgame/ezgame/app/components/Gamepage/Gamepage.style';
 
 export default class Startpage extends Component{
     constructor(){
@@ -21,17 +23,15 @@ export default class Startpage extends Component{
 
   render(){
     return(
-      <View style = {styles.container1}>
-        <View style = {styles.buttonrow}>
+      <View style = {startstyles.container}>
+        <View>
               <TouchableHighlight
-              style = {styles.button}
+              style = {startstyles.button}
               onPress={() => this.navigate('Gamepage')}
-              underlayColor = {'white'}
+              underlayColor = {'#07eeff'}
               title="Tap to Play">
               <View>
-              <Text 
-              style = {styles.buttontext}
-              >Tap to Play</Text>
+              <Text style = {startstyles.buttontext}>Tap to Play</Text>
               </View>
               </TouchableHighlight>
         </View>
@@ -39,5 +39,30 @@ export default class Startpage extends Component{
       );
   }
 }
+
+const startstyles = StyleSheet.create({
+  container: {
+    alignItems:'center',
+    justifyContent:'center',
+    width:Dimensions.get('window').width,
+    height:Dimensions.get('window').height,
+    backgroundColor:'white',
+  },
+  buttontext: {
+    color:'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  button: {
+      borderWidth:1,
+       borderColor:'#07eeff',
+       alignItems:'center',
+       justifyContent:'center',
+       width:200,
+       height:200,
+       backgroundColor:'#07eeff',
+       borderRadius:200,
+  },
+});
 
 AppRegistry.registerComponent('Startpage', () => Startpage);
